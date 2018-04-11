@@ -1,0 +1,38 @@
+.welcome{
+    margin-top: 70px;
+}
+
+.previewImg{
+    opacity: 0.85;
+    /* border: solid 2px black; */
+    width:200px;
+    border-radius: 50% ;
+}
+.playIcon{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: #343a40;
+}
+.deleteIconPreviewPic{
+    position: absolute;
+    top: 20%;
+    left: 44%;
+}
+.editIconPreviewPic{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+.iconsPreviewPic{
+     opacity: 0; 
+}
+.albomReviewPic:hover .iconsPreviewPic{
+    opacity: 1; 
+}
+.albomReviewPic:hover .previewImg{
+    opacity: 1;
+}

@@ -6,6 +6,7 @@
     opacity: 0.85;
     /* border: solid 2px black; */
     width:200px;
+    height: 200px;
     border-radius: 50% ;
 }
 .playIcon{
@@ -16,16 +17,24 @@
     -ms-transform: translate(-50%, -50%);
     text-align: center;
     color: #343a40;
+    background-color: antiquewhite;
+    border-radius: 50% ;
+    width: 32px;
+    height: 32px;
 }
 .deleteIconPreviewPic{
     position: absolute;
     top: 20%;
     left: 44%;
+    background-color: antiquewhite;
+    border-radius: 50% ;
 }
 .editIconPreviewPic{
     position: absolute;
     top: 20%;
     left: 50%;
+    background-color: antiquewhite;
+    border-radius: 50% ;
 }
 .iconsPreviewPic{
      opacity: 0; 

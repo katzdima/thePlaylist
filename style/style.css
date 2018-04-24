@@ -1,3 +1,6 @@
+body{
+    background-color: antiquewhite;
+}
 .welcome{
     margin-top: 70px;
 }
@@ -46,5 +49,21 @@
     opacity: 1;
 }
 #mediaPlayer{
-    
+    width:600px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: darkslategrey;
+    text-align: center;
+}
+#generalPlayerAreaButtons a{
+    display: block;
+}
+#generalPlayerArea {
+    /* display: inline-block; */
+    text-align: center;
+}
+#playerCoverImage{
+    width:200px;
+    height: 200px;
+    border-radius: 50% ;
 }

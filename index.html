@@ -38,24 +38,28 @@
       <h1 class="text-center welcome">Welcome to the playlist project</h1>
 
     <!-- Player area -->
-    <div class="container" id="mediaPlayer">
-      <audio controls>
-        <source src="" type="audio/ogg">
-        <source src="" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-      <a class="closeMediaPlayer">
-        <i class="fas fa-times "></i>
-      </a>
-      <a class="editPlayList">
-        <i class="fas fa-pencil-alt"></i>
-      </a>
-      
+    <div class="container text-center" id="generalPlayerArea">
+      <div id="mediaPlayer" class="text-center">
+        <img src="" alt="playlist cover" id="playerCoverImage">
+        <audio controls>
+          <source src="" type="audio/ogg">
+          <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+      </div> 
+      <div id="generalPlayerAreaButtons"> 
+        <a class="closeMediaPlayer">
+          <i class="fas fa-times "></i>
+        </a>
+        <a class="editPlayList">
+          <i class="fas fa-pencil-alt"></i>
+        </a>
+      </div>
     </div>
     
     <!-- Play Lists area  -->
     <div class="container">
-      <div class="row playlists" id="che">
+      <div class="row playlists">
 
       </div>
 
@@ -83,7 +87,7 @@
         </div>
       </div>
 
-    <!-- Optional JavaScript -->
+    <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

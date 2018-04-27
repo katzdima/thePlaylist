@@ -38,16 +38,8 @@
       <h1 class="text-center welcome">Welcome to the playlist project</h1>
 
     <!-- Player area -->
-    <div class="container text-center" id="generalPlayerArea">
-      <div id="mediaPlayer" class="text-center">
-        <img src="" alt="playlist cover" id="playerCoverImage">
-        <audio controls>
-          <source src="" type="audio/ogg">
-          <source src="" type="audio/mpeg">
-        Your browser does not support the audio element.
-        </audio>
-      </div> 
-      <div id="generalPlayerAreaButtons"> 
+    <div class="container" id="generalPlayerArea">
+      <div id="generalPlayerAreaButtons" class=""> 
         <a class="closeMediaPlayer">
           <i class="fas fa-times "></i>
         </a>
@@ -55,6 +47,28 @@
           <i class="fas fa-pencil-alt"></i>
         </a>
       </div>
+      <div id="mediaPlayer" class="row">
+        <div class="col-lg-4">
+            <a class="IconInPlayer" id="playIconAtPlayer">
+                <i class="far fa-play-circle fa-2x"></i>
+            </a>
+            <a class="IconInPlayer" id="pauseIconAtPlayer">
+                <i class="far fa-pause-circle"></i>
+            </a>
+          <img src="" alt="playlist cover" id="playerCoverImage">
+        </div>
+        <div class="col-lg-8" id="player">
+          <audio controls  src="">
+            <source src="" type="audio/ogg">
+            <source src="" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+          <ul id="songsList">
+            
+          </ul>
+        </div>
+      </div>
+      
     </div>
     
     <!-- Play Lists area  -->

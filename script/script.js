@@ -2,28 +2,21 @@
 //the url for all songs from first playlist http://localhost:8080/playlist/api/playlist.php/?type=songs&id=1
 // the url of the first playlist is http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=1
 $(document).ready(()=>{
-    $(".playlists").html("");
+    //$(".playlists").html("");
     $("#generalPlayerArea").hide();
     var listURL="http://localhost:8080/playlist/api/playlist.php/?type=playlist";
 
-   
-    // $(".playlists").on("click",".edit",()=>{
-    //     var i=0;
-    //     i=$(this).attr("class");
-    //     console.log(i);
-       
-    // });
 
+//need to set the maximum number of chars in name to prevent over slide
     //main list of the playlists
-    $.ajax({url: listURL,type: "GET", success:(results)=>{
+    $.ajax({url: listURL,type: "GET",dataType: 'json', success:(results)=>{
         console.log(results);
         for (let listItem in results.data){
-            console.log(results.data[listItem].id);
             $(".playlists").append(`
-                <div class="note col-xm-12 col-sm-6 col-md-4 col-lg-3 " id="${results.data[listItem].id}">
+                <div class="note col-xm-12 col-sm-6 col-md-4 col-lg-3">
                     <h4 class="text-center curved">${results.data[listItem].name}</h4>
                     <div class="text-center albomReviewPic">
-                        <div class="iconsPreviewPic" >
+                        <div class="iconsPreviewPic" id="card${results.data[listItem].id}">
                             <i class="far fa-times-circle deleteIconPreviewPic"></i>
                             <i class="fas fa-info-circle editIconPreviewPic"></i>
                             <a class="playIcon">

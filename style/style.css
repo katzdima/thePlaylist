@@ -50,20 +50,54 @@ body{
 }
 #mediaPlayer{
     width:600px;
-    height: 200px;
-    border-radius: 100px;
+    height: 220px;
+    border-radius: 110px;
     background-color: darkslategrey;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* vertical-align: center; */
+}
+#generalPlayerAreaButtons {
+    float: right;
+    margin-right: 20%;
+    margin-top: 7%;
 }
 #generalPlayerAreaButtons a{
     display: block;
 }
 #generalPlayerArea {
-    /* display: inline-block; */
-    text-align: center;
+    /* display: inline; */
 }
 #playerCoverImage{
     width:200px;
     height: 200px;
     border-radius: 50% ;
+    margin-top: 10px;
+}
+audio{
+    vertical-align: top;
+    
+}
+#player{
+    display: inline;
+}
+#songsList {
+    list-style: none;
+    /* text-decoration: none; */
+}
+#songsList li:hover {
+    color:black;
+}
+.IconInPlayer{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: #343a40;
+    background-color: antiquewhite;
+    border-radius: 50% ;
+    width: 32px;
+    height: 32px;
 }

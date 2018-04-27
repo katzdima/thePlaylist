@@ -3,12 +3,13 @@
  
  //play icon on the play list
 $(".playlists").on("click",".playIcon",function(){
+    //initilazation
     $("#songsList").html("");
     $("#pauseIconAtPlayer").hide();
     $("#generalPlayerArea").slideDown("slow");
 
+    //chosen play list id
     let id=$(this).parent().attr("id").charAt(4);
-    console.log(id);
 
     //cover image
     listURL=`http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=${id}`;
@@ -32,9 +33,27 @@ $(".playlists").on("click",".playIcon",function(){
             `);
         }
         //initilizing player with first song
-         $("#player audio").attr("src","http://www.disi.co.il/songs/Yam/ItayHarari/020.mp3");
+        $("#player audio").attr("src","http://www.disi.co.il/songs/Yam/ItayHarari/020.mp3");
+        $("#playIconAtPlayer").hide();
+        $("#pauseIconAtPlayer").show();
+        $("#player audio")[0].play();
+        $("#playerCoverImage").addClass("rotate");
 
     }});
+
+    //play/pause player buttons
+    $("#playIconAtPlayer").on("click",function(){
+        $("#playIconAtPlayer").hide();
+        $("#pauseIconAtPlayer").show();
+        $("#player audio")[0].play();
+        $("#playerCoverImage").addClass("rotate");
+    });
+    $("#pauseIconAtPlayer").on("click",function(){
+        $("#pauseIconAtPlayer").hide();
+        $("#playIconAtPlayer").show();
+        $("#player audio")[0].pause();
+        $("#playerCoverImage").removeClass("rotate");
+    });
 
 
 });
@@ -44,4 +63,5 @@ $(".playlists").on("click",".playIcon",function(){
 //close and stop button on the media player
 $("#generalPlayerArea").on("click",".closeMediaPlayer",()=>{
     $("#generalPlayerArea").slideUp("slow");
+    //TBD     stop playing ,rotating the img , reset corrent song 
 });

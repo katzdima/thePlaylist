@@ -24,7 +24,7 @@
           <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#"data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus-circle"></i>Add new playlist</a>
+                <a class="nav-link" href="#"data-toggle="modal" data-target="#modalCenter" id="openModal"><i class="fas fa-plus-circle"></i>Add new playlist</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 input-group-sm">
@@ -58,7 +58,7 @@
           <img src="" alt="playlist cover" id="playerCoverImage" class="">
         </div>
         <div class="col-lg-8" id="player">
-          <audio controls  src="">
+          <audio controls  auto src="">
             <source src="" type="audio/ogg">
             <source src="" type="audio/mpeg">
           Your browser does not support the audio element.
@@ -81,21 +81,43 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" id="modalLongTitle">Add new playlist</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <div id="modalSection1">
+                <div class="row">
+                  <div class="col-lg-7">
+                    <div class="form-group">
+                      <label for="formControlInput1">Playlist name</label>
+                      <input type="text" class="form-control" id="formControlInput1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="formControlInput2">Playlist cover URL</label>
+                      <input type="text" class="form-control" id="formControlInput2" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-lg-5" id="playlistPreviewImg">
+                    <img src="images/defaultImage .jpg" alt="default Image">
+                  </div>
+                </div>
+              </div>
+              <div id="modalSection2">
+                  <input type="text" class="form-control" placeholder="Song URL">
+                  <input type="text" class="form-control" placeholder="Song Name">
+                <a class=""><i class="fas fa-plus-square text-secondary"></i>Add another song</a>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+              <button type="button" class="btn btn-primary" id="previousBtn">Previous</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"id="closeAndSaveModal">Close&Save</button>
             </div>
           </div>
         </div>
@@ -112,6 +134,7 @@
     <!-- curved text plug-in -->
     <script src="script/jquery.arctext.js"></script>
 
+    <script src="script/creatPlaylist.js"></script>
     <script src="script/mediaplayer.js"></script>
     <script src="script/script.js"></script>
   </body>

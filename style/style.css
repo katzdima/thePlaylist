@@ -85,7 +85,11 @@ audio{
     list-style: none;
     /* text-decoration: none; */
 }
-#songsList li:hover {
+#songsList li a{
+    text-decoration: none;
+    color:darkgray;
+}
+#songsList li a:hover {
     color:black;
 }
 .IconInPlayer{
@@ -121,5 +125,13 @@ audio{
     to {
             -webkit-transform: rotate(359deg);
     }
+}
+#playlistPreviewImg img{
+    width:250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.modal-body{
+    background-color: azure;
 }
 

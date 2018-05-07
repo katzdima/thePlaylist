@@ -17,9 +17,6 @@
     <!-- Navbar area -->
       <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
           <a class="navbar-brand" href="#">The Playlist</a>
-          <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-            <span class="navbar-toggler-icon"></span>
-          </button>
     
           <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -94,30 +91,61 @@
               <div id="modalSection1">
                 <div class="row">
                   <div class="col-lg-7">
+                    <div class="alert alert-danger" id="nameAlert1">
+                      <strong>Name should be from 3 to 20 digits!</strong>
+                    </div>
                     <div class="form-group">
                       <label for="formControlInput1">Playlist name</label>
                       <input type="text" class="form-control" id="formControlInput1" placeholder="">
+                    </div>
+                    <div class="alert alert-danger" id="urlAlert1">
+                      <strong>Invalid image URL!</strong>
                     </div>
                     <div class="form-group">
                       <label for="formControlInput2">Playlist cover URL</label>
                       <input type="text" class="form-control" id="formControlInput2" placeholder="">
                     </div>
+                    <button type="button" class="btn btn-outline-warning btn-block" id="previewBtn">Preview</button>
                   </div>
                   <div class="col-lg-5" id="playlistPreviewImg">
-                    <img src="images/defaultImage .jpg" alt="default Image">
+                    <img src="images/defaultImage.jpg" alt="default Image">
                   </div>
                 </div>
               </div>
               <div id="modalSection2">
-                  <input type="text" class="form-control" placeholder="Song URL">
-                  <input type="text" class="form-control" placeholder="Song Name">
-                <a class=""><i class="fas fa-plus-square text-secondary"></i>Add another song</a>
+                <div class="container" id="songsAddingContainer">
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <input type="text" class="form-control" placeholder="Song URL">
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder="Song Name">  
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <input type="text" class="form-control" placeholder="Song URL">
+                    </div>
+                    <div class="col-lg-4">
+                      <input type="text" class="form-control" placeholder="Song Name">  
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <input type="text" class="form-control" placeholder="Song URL">
+                    </div>
+                    <div class="col-lg-4">
+                      <input type="text" class="form-control" placeholder="Song Name">  
+                    </div>
+                  </div>
+                </div> 
+                <a href="" id="addRowBtn"><i class="fas fa-plus-square text-secondary"></i>Add another song</a>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-              <button type="button" class="btn btn-primary" id="previousBtn">Previous</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal"id="closeAndSaveModal">Close&Save</button>
+              <button type="button" class="btn btn-outline-primary" id="nextBtn">Next</button>
+              <button type="button" class="btn btn-outline-primary" id="previousBtn">Previous</button>
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"id="closeAndSaveModal">Close&Save</button>
             </div>
           </div>
         </div>

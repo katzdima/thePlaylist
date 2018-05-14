@@ -5,11 +5,14 @@ var song = {
     name:"",
     url:""
 };
+var data={};
 var songs = [];
 var nameAndUrlValid;
 var playlistId;
 var isEdit;
 var playlistId;
+var listNameValid;
+var listUrlValid;
 
 //initilazation of the add playlist modal
 $("#openModal").click(()=>{
@@ -58,12 +61,18 @@ $("#nextBtn").click(()=>{
     }else{
         $("#urlAlert1").show();
     }
+    if(validReturn){
+        if(listNameValid!==listName || listUrlValid!==listUrl){
+            isEdit = true;
+            validReturn=false;
+        }
+    }
     if(nameValidation && imageUrlValidation){
         if(!validReturn){
             if(!isEdit){
                 //saving in DB new playlist withoud songs
                 let newListUrl = 'http://localhost:8080/playlist/api/playlist.php/?type=playlist';
-                let data ={
+                data ={
                     name:listName,
                     image:listUrl,
                     songs:[{
@@ -73,12 +82,13 @@ $("#nextBtn").click(()=>{
                 };
                 $.post(newListUrl,data,function(data, status){
                     playlistId = data.data.id;
+                    console.log('new list created : ' + status);
                 });
             }
             else{
                 //saving in DB edited playlist without songs
                 console.log("saving: " + playlistId);
-                let data={
+                data={
                     name:listName,
                     image:listUrl
                 };
@@ -91,6 +101,8 @@ $("#nextBtn").click(()=>{
         }
         //initilizing second section of modal
         validReturn=true;
+        listNameValid=listName;
+        listUrlValid=listUrl;
         $("#modalSection1").hide();
         $("#modalSection2").show();
         $("#nextBtn").hide();
@@ -169,13 +181,14 @@ $('#closeAndSaveModal').click(()=>{
         };
         let listURL=`http://localhost:8080/playlist/api/playlist.php/?type=songs&id=${playlistId}`;
         $.post(listURL,data,function(data,status){
-            console.log("status:" + status);
+            console.log("songs addet :" + status);
         });
         $("#modalSection1 input").val("");
         $("#modalSection2 input").val("");
         $('#songsAddingContainer').children('.row').not('.row:first').remove();
         addingRowInSection2();
         $('#modalCenter').modal('hide');
+        showAllPlaylist();
     }
 });
   
@@ -188,10 +201,23 @@ $("#closeModal").click(()=>{
     $("#modalSection2 input").val("");
     $('#songsAddingContainer').children('.row').not('.row:first').remove();
     addingRowInSection2();
-
+    showAllPlaylist();
 });
+
 //-----------------------------UPDATE PLAYLIST--------------------------------------------------------
 $('.playlists').on('click','.editIconPreviewPic',function(){
+    playlistId = parseInt($(this).parent().attr("id").substring(4));
+    console.log("current list id is: " + playlistId);
+    updatePlaylist(playlistId);
+});
+
+$(".editPlayList").click(function(){
+    playlistId = parseInt($(this).parent().attr("data-id").substring(4));
+    console.log("current list id is: " + playlistId);
+    updatePlaylist(playlistId);
+});
+
+function updatePlaylist(playlistId){
     //initilizing the modal content
     isEdit = true;
     validReturn=false;
@@ -204,8 +230,6 @@ $('.playlists').on('click','.editIconPreviewPic',function(){
     $("#nextBtn").show();
     $("#modalLongTitle").html("Add new playlist");
     $(".alert").hide();
-
-    playlistId = parseInt($(this).parent().attr("id").substring(4));
 
     //section1 of the modal
     let listURL = `http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=${playlistId}`;
@@ -225,5 +249,29 @@ $('.playlists').on('click','.editIconPreviewPic',function(){
             $('#songsAddingContainer .row:last-child').find('.name').val(results.data.songs[item].name);
         }
     }});
-});
+}
+
 //-----------------------------DELETE PLAYLIST--------------------------------------------------------
+$('.playlists').on('click','.deleteIconPreviewPic',function(){
+    let id = parseInt($(this).parent().attr("id").substring(4));
+    deletePlaylist(id);
+});
+
+$(".closeMediaPlayer").click(function(){
+    $("#generalPlayerArea").slideUp("slow");
+    //TBD     stop playing ,rotating the img , reset corrent song 
+    let id = parseInt($(this).parent().attr("data-id").substring(4));
+    deletePlaylist(id);
+});
+
+function deletePlaylist (id){
+    $('#modalDelete').modal('show');
+    $('#YesDeleteBtn').click(()=>{
+        let listURL=`http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=${id}`;
+        $.ajax({url: listURL,type: "DELETE", success:(results)=>{
+            console.log('delete result: ' + results);
+        }});
+        showAllPlaylist();
+        $('#modalDelete').modal('hide');
+    });
+}

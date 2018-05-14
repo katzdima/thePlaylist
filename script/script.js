@@ -2,8 +2,12 @@
 //the url for all songs from first playlist http://localhost:8080/playlist/api/playlist.php/?type=songs&id=1
 // the url of the first playlist is http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=1
 $(document).ready(()=>{
-    //$(".playlists").html("");
     $("#generalPlayerArea").hide();
+    showAllPlaylist();
+});
+
+function showAllPlaylist(){
+    $(".playlists").html("");
     var listURL="http://localhost:8080/playlist/api/playlist.php/?type=playlist";
 
     //main list of the playlists
@@ -21,14 +25,11 @@ $(document).ready(()=>{
                                 <i class="far fa-play-circle fa-2x"></i>
                             </a>
                         </div>
-                        <img src="${results.data[listItem].image}" alt="Smiley face" class="previewImg">
+                        <img src="${results.data[listItem].image}" alt="Play list picture" class="previewImg">
                     </div>
                 </div>
             `);
             $(".curved").arctext({radius: 109});
         }
     }});
-
-
-    
-});
+}

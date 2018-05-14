@@ -1,10 +1,3 @@
- //http://www.disi.co.il/songs/Yam/EdenBenZaken/039.mp3
- //http://www.disi.co.il/songs/Yam/ItayHarari/020.mp3
- //http://www.fmplayer.co.il/100fmPlayer/BettaLemmeBambola.mp3
-//  http://www.fmplayer.co.il/100fmPlayer/anywhere.mp3
-//http://www.fmplayer.co.il/100fmPlayer/DuaLipa IDGAF.mp3
-//http://www.fmplayer.co.il/100fmPlayer/BrunoMarsinesse.mp3
- 
  //play icon on the play list
 $(".playlists").on("click",".playIcon",function(){
     //initilazation
@@ -13,7 +6,9 @@ $(".playlists").on("click",".playIcon",function(){
     $("#generalPlayerArea").slideDown("slow");
 
     //chosen play list id
-    let id=$(this).parent().attr("id").charAt(4);// bug at dual digits
+    let id=parseInt($(this).parent().attr("id").substring(4));
+    $('.editPlayList').parent().attr("data-id",`list${id}`);
+    $('.closeMediaPlayer').parent().attr("data-id",`list${id}`);
 
     //cover image
     listURL=`http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=${id}`;
@@ -26,8 +21,8 @@ $(".playlists").on("click",".playIcon",function(){
     //songs list
     listURL=`http://localhost:8080/playlist/api/playlist.php/?type=songs&id=${id}`;
     $.ajax({url: listURL,type: "GET", success:(results)=>{
-        //console.log(results.data.songs.data[0].url);
-        var songsList = results.data.songs.data;
+        console.log(results.data);
+        var songsList = results.data.songs;
         //creating songs list
         // for (let listItem in results.data.songs.data){
         //     $("#songsList").append(` 
@@ -41,7 +36,7 @@ $(".playlists").on("click",".playIcon",function(){
         creatSongList(songsList);
 
         //initilizing player with first song
-        $("#player audio").attr("src",`${results.data.songs.data[0].url}`);
+        $("#player audio").attr("src",`${results.data.songs[0].url}`);
         $("#playIconAtPlayer").hide();
         $("#pauseIconAtPlayer").show();
         $("#player audio")[0].play();
@@ -83,11 +78,7 @@ $(".playlists").on("click",".playIcon",function(){
 
 
 
-//close and stop button on the media player
-$("#generalPlayerArea").on("click",".closeMediaPlayer",()=>{
-    $("#generalPlayerArea").slideUp("slow");
-    //TBD     stop playing ,rotating the img , reset corrent song 
-});
+
 
 function creatSongList(data){
     for (let listItem in data){

@@ -98,7 +98,7 @@
                       <label for="formControlInput1">Playlist name</label>
                       <input type="text" class="form-control" id="formControlInput1" placeholder="">
                     </div>
-                    <div class="alert alert-danger" id="urlAlert1">
+                    <div class="alert alert-danger alert-sm" id="urlAlert1">
                       <strong>Invalid image URL!</strong>
                     </div>
                     <div class="form-group">
@@ -116,26 +116,22 @@
                 <div class="container" id="songsAddingContainer">
                   <div class="row">
                     <div class="col-lg-8">
-                      <input type="text" class="form-control" placeholder="Song URL">
+                      <div class="alert alert-danger alert-sm" id="urlAlert2">
+                        <strong>Invalid song URL!</strong>
+                      </div>
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" class="form-control" placeholder="Song Name">  
+                      <div class="alert alert-danger alert-sm" id="nameAlert2">
+                        <strong>Invalid song name!</strong>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-8">
-                      <input type="text" class="form-control" placeholder="Song URL">
+                      <input type="text" class="form-control url" placeholder="Song URL" >
                     </div>
-                    <div class="col-lg-4">
-                      <input type="text" class="form-control" placeholder="Song Name">  
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-8">
-                      <input type="text" class="form-control" placeholder="Song URL">
-                    </div>
-                    <div class="col-lg-4">
-                      <input type="text" class="form-control" placeholder="Song Name">  
+                    <div class="col-lg-4">                    
+                      <input type="text" class="form-control name" placeholder="Song Name" >  
                     </div>
                   </div>
                 </div> 
@@ -145,7 +141,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-primary" id="nextBtn">Next</button>
               <button type="button" class="btn btn-outline-primary" id="previousBtn">Previous</button>
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"id="closeAndSaveModal">Close&Save</button>
+              <button type="button" class="btn btn-outline-secondary" id="closeAndSaveModal">Close&Save</button>
             </div>
           </div>
         </div>
@@ -162,7 +158,7 @@
     <!-- curved text plug-in -->
     <script src="script/jquery.arctext.js"></script>
 
-    <script src="script/creatPlaylist.js"></script>
+    <script src="script/CUDPlaylist.js"></script>
     <script src="script/mediaplayer.js"></script>
     <script src="script/script.js"></script>
   </body>

@@ -13,7 +13,7 @@ $(".playlists").on("click",".playIcon",function(){
     $("#generalPlayerArea").slideDown("slow");
 
     //chosen play list id
-    let id=$(this).parent().attr("id").charAt(4);
+    let id=$(this).parent().attr("id").charAt(4);// bug at dual digits
 
     //cover image
     listURL=`http://localhost:8080/playlist/api/playlist.php/?type=playlist&id=${id}`;
@@ -26,7 +26,7 @@ $(".playlists").on("click",".playIcon",function(){
     //songs list
     listURL=`http://localhost:8080/playlist/api/playlist.php/?type=songs&id=${id}`;
     $.ajax({url: listURL,type: "GET", success:(results)=>{
-        console.log(results.data.songs.data[0].url);
+        //console.log(results.data.songs.data[0].url);
         var songsList = results.data.songs.data;
         //creating songs list
         // for (let listItem in results.data.songs.data){

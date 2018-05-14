@@ -6,8 +6,6 @@ $(document).ready(()=>{
     $("#generalPlayerArea").hide();
     var listURL="http://localhost:8080/playlist/api/playlist.php/?type=playlist";
 
-
-//need to set the maximum number of chars in name to prevent over slide
     //main list of the playlists
     $.ajax({url: listURL,type: "GET",dataType: 'json', success:(results)=>{
         console.log(results);

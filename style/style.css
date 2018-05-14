@@ -134,14 +134,15 @@ audio{
 .modal-body{
     background-color: azure;
 }
-/* #openModal:visited{
-    text-decoration: none;
-     color: inherit; 
-
+#songsAddingContainer .row{
+    padding-bottom: 5px;
 }
-nav li:visited{
+#addRowBtn{
     text-decoration: none;
 }
-.active li:visited{
-    text-decoration: none;
-} */
+#addRowBtn svg{
+    padding-right: 3px;
+}
+.errorBorder{
+    border: 1px solid #dc3545!important ;
+}

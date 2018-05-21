@@ -1,13 +1,12 @@
 body{
     background-color: antiquewhite;
+    font-family: 'Domine', serif;
 }
 .welcome{
     margin-top: 70px;
 }
-
 .previewImg{
     opacity: 0.85;
-    /* border: solid 2px black; */
     width:200px;
     height: 200px;
     border-radius: 50% ;
@@ -40,7 +39,7 @@ body{
     border-radius: 50% ;
 }
 .iconsPreviewPic{
-     opacity: 0; 
+    opacity: 0; 
 }
 .albomReviewPic:hover .iconsPreviewPic{
     opacity: 1; 
@@ -49,24 +48,15 @@ body{
     opacity: 1;
 }
 #mediaPlayer{
-    width:600px;
     height: 220px;
     border-radius: 110px;
     background-color: darkslategrey;
-    margin-left: auto;
-    margin-right: auto;
-    /* vertical-align: center; */
 }
 #generalPlayerAreaButtons {
-    float: right;
-    margin-right: 20%;
-    margin-top: 7%;
+    margin-top: 7%; 
 }
 #generalPlayerAreaButtons a{
     display: block;
-}
-#generalPlayerArea {
-    /* display: inline; */
 }
 #playerCoverImage{
     width:200px;
@@ -76,14 +66,13 @@ body{
 }
 audio{
     vertical-align: top;
-    
 }
 #player{
     display: inline;
 }
 #songsList {
     list-style: none;
-    /* text-decoration: none; */
+    overflow: auto;
 }
 #songsList li a{
     text-decoration: none;
@@ -95,7 +84,7 @@ audio{
 .IconInPlayer{
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 110px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
@@ -145,4 +134,7 @@ audio{
 }
 .errorBorder{
     border: 1px solid #dc3545!important ;
+}
+.marked{
+    color:black !important;
 }

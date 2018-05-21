@@ -191,7 +191,7 @@ $('#closeAndSaveModal').click(()=>{
         $('#songsAddingContainer').children('.row').not('.row:first').remove();
         addingRowInSection2();
         $('#modalCenter').modal('hide');
-        showAllPlaylist();
+        setTimeout(function(){showAllPlaylist();},200);
     }
 });
   
@@ -204,7 +204,7 @@ $("#closeModal").click(()=>{
     $("#modalSection2 input").val("");
     $('#songsAddingContainer').children('.row').not('.row:first').remove();
     addingRowInSection2();
-    showAllPlaylist();
+    setTimeout(function(){showAllPlaylist();},200);
 });
 
 //-----------------------------UPDATE PLAYLIST--------------------------------------------------------
@@ -283,8 +283,6 @@ function deletePlaylist (id){
         }});
         $('#modalDelete').modal('hide');
         $(".playlists").html("");
-        
         setTimeout(function(){showAllPlaylist();},500);
-        
     });
 }

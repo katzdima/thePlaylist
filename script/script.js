@@ -4,6 +4,7 @@ $(document).ready(()=>{
     showAllPlaylist();
 });
 
+//all playlists display
 function showAllPlaylist(){
     $(".playlists").html("");
     var listURL="http://localhost:8080/playlist/api/playlist.php/?type=playlist";
